@@ -25,14 +25,3 @@ extension PartialRangeThrough: ClampableRange {
     }
 }
 
-extension PartialRangeUpTo: ClampableRange {
-    public func clamp(_ value: Bound) -> Bound {
-        Swift.min(self.upperBound, value)
-    }
-}
-
-extension Range: ClampableRange {
-    public func clamp(_ value: Bound) -> Bound {
-        Swift.min(Swift.max(self.lowerBound, value), self.upperBound)
-    }
-}
